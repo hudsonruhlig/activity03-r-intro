@@ -2,8 +2,8 @@ Activity 3
 ================
 Hudson Ruhlig
 
-Today you will be creating and manipulating vectors, lists, and data
-frames to uncover a top secret message.
+You will be creating and manipulating vectors, lists, and data frames to
+uncover a top secret message.
 
 As you work through this document with your Team members, remember to:
 
