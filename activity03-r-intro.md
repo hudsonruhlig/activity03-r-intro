@@ -30,82 +30,224 @@ lower case letters, and 3) some punctuation marks.
 ``` r
 lower_case <- c("a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z")
 
-upper_case <- c("A", "B", "C", "D", "E", "F", "G", "H" "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z")
+upper_case <- c("A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z")
 
-punctuation <- c(".", ",", "!", "?", "'", """, "(", ")", " ", "-", ";", ":")
+punctuation <- c(".", ",", "!", "?", "'", '"', "(", ")", " ", "-", ";", ":")
 ```
-
-    ## Error: <text>:3:56: unexpected string constant
-    ## 2: 
-    ## 3: upper_case <- c("A", "B", "C", "D", "E", "F", "G", "H" "I"
-    ##                                                           ^
 
 Comment on what you noticed about the errors and how you used this
 information to correct the issues.
 
 **Response**:
+
+Using the errors stating there were unexpected string constants in
+specific arguments. In the arguments for the vectors, there were
+punctuation issues that were changed to fix the errors and complete the
+vectors.
 
 Make one long vector containing all the symbols.
 
 ``` r
-my_symbols <- cbind(lower_case, upper_case, punctuation)
+my_symbols <- c(lower_case, upper_case, punctuation)
+my_symbols
 ```
 
-    ## Error in cbind(lower_case, upper_case, punctuation): object 'lower_case' not found
+    ##  [1] "a"  "b"  "c"  "d"  "e"  "f"  "g"  "h"  "i"  "j"  "k"  "l"  "m"  "n"  "o" 
+    ## [16] "p"  "q"  "r"  "s"  "t"  "u"  "v"  "w"  "x"  "y"  "z"  "A"  "B"  "C"  "D" 
+    ## [31] "E"  "F"  "G"  "H"  "I"  "J"  "K"  "L"  "M"  "N"  "O"  "P"  "Q"  "R"  "S" 
+    ## [46] "T"  "U"  "V"  "W"  "X"  "Y"  "Z"  "."  ","  "!"  "?"  "'"  "\"" "("  ")" 
+    ## [61] " "  "-"  ";"  ":"
 
 Comment on what you noticed about the errors and how you used this
 information to correct the issues.
 
 **Response**:
+
+Using the error I noticed that the function cbind() was not the proper
+function for creating simple vectors with the other created vectors.
+Looking at the created vectors above, I changed the function to properly
+create the my\_symbols function.
 
 Turn the `my_symbols` vector into a data frame, with the variable name
 “Symbol”.
 
 ``` r
-my_symbols <- dataframe(my_symbols)
+my_symbols <- data.frame(my_symbols)
+names(my_symbols) <- "Symbol"
+my_symbols
 ```
 
-    ## Error in dataframe(my_symbols): could not find function "dataframe"
-
-``` r
-names(my_symbols) = Symbol
-```
-
-    ## Error in eval(expr, envir, enclos): object 'Symbol' not found
+    ##    Symbol
+    ## 1       a
+    ## 2       b
+    ## 3       c
+    ## 4       d
+    ## 5       e
+    ## 6       f
+    ## 7       g
+    ## 8       h
+    ## 9       i
+    ## 10      j
+    ## 11      k
+    ## 12      l
+    ## 13      m
+    ## 14      n
+    ## 15      o
+    ## 16      p
+    ## 17      q
+    ## 18      r
+    ## 19      s
+    ## 20      t
+    ## 21      u
+    ## 22      v
+    ## 23      w
+    ## 24      x
+    ## 25      y
+    ## 26      z
+    ## 27      A
+    ## 28      B
+    ## 29      C
+    ## 30      D
+    ## 31      E
+    ## 32      F
+    ## 33      G
+    ## 34      H
+    ## 35      I
+    ## 36      J
+    ## 37      K
+    ## 38      L
+    ## 39      M
+    ## 40      N
+    ## 41      O
+    ## 42      P
+    ## 43      Q
+    ## 44      R
+    ## 45      S
+    ## 46      T
+    ## 47      U
+    ## 48      V
+    ## 49      W
+    ## 50      X
+    ## 51      Y
+    ## 52      Z
+    ## 53      .
+    ## 54      ,
+    ## 55      !
+    ## 56      ?
+    ## 57      '
+    ## 58      "
+    ## 59      (
+    ## 60      )
+    ## 61       
+    ## 62      -
+    ## 63      ;
+    ## 64      :
 
 Comment on what you noticed about the errors and how you used this
 information to correct the issues.
 
 **Response**:
+
+In the errors, I noticed there was punction issues with the data.frame()
+function, and missing quotations in the naming assignment of the created
+data frame.
 
 Find the total number of symbols we have in our data frame.
 
 ``` r
-len <- length(my_symbols)
+len <- nrow(my_symbols)
+len
 ```
 
-    ## Error in eval(expr, envir, enclos): object 'my_symbols' not found
+    ## [1] 64
 
 Comment on what you noticed about the errors and how you used this
 information to correct the issues.
 
-**Response**:
+**Response**: I noticed that the function length() wasn’t working so I
+used the internet to find the proper function for counting rows of a
+vector
 
 5.  Create a new variable in your dataframe that assigns a number to
     each symbol.
 
 ``` r
-my_symbols%Num <- 1:len
+my_symbols$Num <- 1:len
+my_symbols
 ```
 
-    ## Error: <text>:1:11: unexpected input
-    ## 1: my_symbols%Num <- 1:len
-    ##               ^
+    ##    Symbol Num
+    ## 1       a   1
+    ## 2       b   2
+    ## 3       c   3
+    ## 4       d   4
+    ## 5       e   5
+    ## 6       f   6
+    ## 7       g   7
+    ## 8       h   8
+    ## 9       i   9
+    ## 10      j  10
+    ## 11      k  11
+    ## 12      l  12
+    ## 13      m  13
+    ## 14      n  14
+    ## 15      o  15
+    ## 16      p  16
+    ## 17      q  17
+    ## 18      r  18
+    ## 19      s  19
+    ## 20      t  20
+    ## 21      u  21
+    ## 22      v  22
+    ## 23      w  23
+    ## 24      x  24
+    ## 25      y  25
+    ## 26      z  26
+    ## 27      A  27
+    ## 28      B  28
+    ## 29      C  29
+    ## 30      D  30
+    ## 31      E  31
+    ## 32      F  32
+    ## 33      G  33
+    ## 34      H  34
+    ## 35      I  35
+    ## 36      J  36
+    ## 37      K  37
+    ## 38      L  38
+    ## 39      M  39
+    ## 40      N  40
+    ## 41      O  41
+    ## 42      P  42
+    ## 43      Q  43
+    ## 44      R  44
+    ## 45      S  45
+    ## 46      T  46
+    ## 47      U  47
+    ## 48      V  48
+    ## 49      W  49
+    ## 50      X  50
+    ## 51      Y  51
+    ## 52      Z  52
+    ## 53      .  53
+    ## 54      ,  54
+    ## 55      !  55
+    ## 56      ?  56
+    ## 57      '  57
+    ## 58      "  58
+    ## 59      (  59
+    ## 60      )  60
+    ## 61         61
+    ## 62      -  62
+    ## 63      ;  63
+    ## 64      :  64
 
 Comment on what you noticed about the errors and how you used this
 information to correct the issues.
 
 **Response**:
+
+I used the shorthand to access new variables with the $
 
 ![](README-img/noun_pause.png) **Planned Pause Point**: If things made
 sense, feel free to continue on while you wait. Otherwise, contact your
@@ -178,7 +320,7 @@ the final message, by running the following code:
 stringr::str_c(my_symbols$Symbol[top_secret], collapse = "")
 ```
 
-    ## Error in stri_c(..., sep = sep, collapse = collapse, ignore_null = TRUE): object 'my_symbols' not found
+    ## [1] ""
 
 Google the first line of this message, if you do not recognize it, to
 see what it is.

@@ -31,61 +31,71 @@ Create three vectors that contain: 1) the lower case letters, 2) the lower case 
 ```{r}
 lower_case <- c("a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z")
 
-upper_case <- c("A", "B", "C", "D", "E", "F", "G", "H" "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z")
+upper_case <- c("A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z")
 
-punctuation <- c(".", ",", "!", "?", "'", """, "(", ")", " ", "-", ";", ":")
+punctuation <- c(".", ",", "!", "?", "'", '"', "(", ")", " ", "-", ";", ":")
 ```
 
 Comment on what you noticed about the errors and how you used this information to correct the issues.
 
 **Response**:
+
+Using the errors stating there were unexpected string constants in specific arguments. In the arguments for the vectors, there were punctuation issues that were changed to fix the errors and complete the vectors.
 
 
 Make one long vector containing all the symbols.
 
 ```{r}
-my_symbols <- cbind(lower_case, upper_case, punctuation)
+my_symbols <- c(lower_case, upper_case, punctuation)
+my_symbols
 ```
 
 Comment on what you noticed about the errors and how you used this information to correct the issues.
 
 **Response**:
 
+Using the error I noticed that the function cbind() was not the proper function for creating simple vectors with the other created vectors. Looking at the created vectors above, I changed the function to properly create the my_symbols function.
 
 Turn the `my_symbols` vector into a data frame, with the variable name "Symbol".
 
 ```{r}
-my_symbols <- dataframe(my_symbols)
-names(my_symbols) = Symbol
+my_symbols <- data.frame(my_symbols)
+names(my_symbols) <- "Symbol"
+my_symbols
 ```
 
 Comment on what you noticed about the errors and how you used this information to correct the issues.
 
 **Response**:
+
+In the errors, I noticed there was punction issues with the data.frame() function, and missing quotations in the naming assignment of the created data frame.
 
 
 Find the total number of symbols we have in our data frame.  
 
 ```{r}
-len <- length(my_symbols)
+len <- nrow(my_symbols)
+len
 ```
 
 Comment on what you noticed about the errors and how you used this information to correct the issues.
 
 **Response**:
+I noticed that the function length() wasn't working so I used the internet to find the proper function for counting rows of a vector
 
 
 5. Create a new variable in your dataframe that assigns a number to each symbol.
 
 ```{r}
-my_symbols%Num <- 1:len
+my_symbols$Num <- 1:len
+my_symbols
 ```
 
 Comment on what you noticed about the errors and how you used this information to correct the issues.
 
 **Response**:
 
-
+I used the shorthand to access new variables with the $
 
 ![](README-img/noun_pause.png) **Planned Pause Point**: If things made sense, feel free to continue on while you wait. Otherwise, contact your instructor to have them verify your work.
 
